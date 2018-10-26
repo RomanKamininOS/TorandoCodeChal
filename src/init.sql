@@ -1,0 +1,10 @@
+CREATE DATABASE IF NOT EXISTS tornado_ua;
+
+CREATE TABLE IF NOT EXISTS words_data
+(
+    id VARCHAR(255) PRIMARY KEY NOT NULL,
+    word VARCHAR(255) NOT NULL,
+    frequency INT DEFAULT 0,
+    total_frequency INT DEFAULT 0
+);
+

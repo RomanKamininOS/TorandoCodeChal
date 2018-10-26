@@ -1,0 +1,22 @@
+# Use root/example as user/password credentials
+version: '2'
+
+services:
+
+  db:
+    image: mysql
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: example
+    ports:
+      - 3306:3306
+
+
+  tornado:
+     build: "./src"
+     ports:
+       - "8080:8080"
+     depends_on:
+       - "db"
+     environment:
+        MYSQL_HOST: "db"
